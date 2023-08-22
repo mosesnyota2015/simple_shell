@@ -41,7 +41,7 @@ char *without_comment(char *in)
  *
  * Return: no return.
  */
-void shell_loop(data_shell *datash)
+void shell_loop(shell_data *datash)
 {
 	int loop, i_eof;
 	char *input;

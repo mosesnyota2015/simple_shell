@@ -87,7 +87,7 @@ void add_nodes(sep_list **head_s, line_list **head_l, char *input)
  * @datash: data structure
  * Return: no return
  */
-void go_next(sep_list **list_s, line_list **list_l, data_shell *datash)
+void go_next(sep_list **list_s, line_list **list_l, shell_data *datash)
 {
 	int loop_sep;
 	sep_list *ls_s;
@@ -129,7 +129,7 @@ void go_next(sep_list **list_s, line_list **list_l, data_shell *datash)
  * @input: input string
  * Return: 0 to exit, 1 to continue
  */
-int split_commands(data_shell *datash, char *input)
+int split_commands(shell_data *datash, char *input)
 {
 
 	sep_list *head_s, *list_s;

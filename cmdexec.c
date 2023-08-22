@@ -78,7 +78,7 @@ char *_which(char *cmd, char **_environ)
  * @datash: data structure
  * Return: 0 if is not an executable, other number if it does
  */
-int is_executable(data_shell *datash)
+int is_executable(shell_data *datash)
 {
 	struct stat st;
 	int i;
@@ -124,7 +124,7 @@ int is_executable(data_shell *datash)
  * @datash: data structure
  * Return: 1 if there is an error, 0 if not
  */
-int check_error_cmd(char *dir, data_shell *datash)
+int check_error_cmd(char *dir, shell_data *datash)
 {
 	if (dir == NULL)
 	{
@@ -160,7 +160,7 @@ int check_error_cmd(char *dir, data_shell *datash)
  * @datash: data relevant (args and input)
  * Return: 1 on success.
  */
-int cmd_exec(data_shell *datash)
+int cmd_exec(shell_data *datash)
 {
 	pid_t pd;
 	pid_t wpd;

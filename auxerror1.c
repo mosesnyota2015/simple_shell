@@ -9,7 +9,7 @@
  * @ver_str: counter lines
  * Return: error message
  */
-char *strcat_cd(data_shell *datash, char *msg, char *error, char *ver_str)
+char *strcat_cd(shell_data *datash, char *msg, char *error, char *ver_str)
 {
 	char *illegal_flag;
 
@@ -43,7 +43,7 @@ char *strcat_cd(data_shell *datash, char *msg, char *error, char *ver_str)
  * @datash: data relevant (directory)
  * Return: Error message
  */
-char *error_get_cd(data_shell *datash)
+char *error_get_cd(shell_data *datash)
 {
 	int length, len_id;
 	char *error, *ver_str, *msg;
@@ -82,7 +82,7 @@ char *error_get_cd(data_shell *datash)
  * @datash: data relevant (counter, arguments)
  * Return: Error message
  */
-char *error_not_found(data_shell *datash)
+char *error_not_found(shell_data *datash)
 {
 	int length;
 	char *error;
@@ -115,7 +115,7 @@ char *error_not_found(data_shell *datash)
  *
  * Return: Error message
  */
-char *error_exit_shell(data_shell *datash)
+char *error_exit_shell(shell_data *datash)
 {
 	int length;
 	char *error;
