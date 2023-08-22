@@ -1,13 +1,13 @@
 #include "main.h"
 
 /**
- * add_sep_node_end - adds a separatr found at the end
+ * add_sep_end_node - adds a separatr found at the end
  * of a seplists.
  * @head: head of the linked list.
  * @sep: separatr found (; | &).
  * Return: address of the head.
  */
-seplists *add_sep_node_end(seplists **head, char sep)
+seplists *add_sep_end_node(seplists **head, char sep)
 {
 	seplists *new, *temp;
 
@@ -34,11 +34,11 @@ seplists *add_sep_node_end(seplists **head, char sep)
 }
 
 /**
- * free_seplists - frees a seplists
+ * free_seplist - frees a seplists
  * @head: head of the linked list.
  * Return: no return.
  */
-void free_seplists(seplists **head)
+void free_seplist(seplists **head)
 {
 	seplists *temp;
 	seplists *curr;
@@ -56,13 +56,13 @@ void free_seplists(seplists **head)
 }
 
 /**
- * add_line_node_end - adds a command line at the end
+ * add_line_end_node - adds a command line at the end
  * of a cmd_lines_list.
  * @head: head of the linked list.
  * @line: command line.
  * Return: address of the head.
  */
-cmd_lines_list *add_line_node_end(cmd_lines_list **head, char *line)
+cmd_lines_list *add_line_end_node(cmd_lines_list **head, char *line)
 {
 	cmd_lines_list *new, *temp;
 
@@ -89,11 +89,11 @@ cmd_lines_list *add_line_node_end(cmd_lines_list **head, char *line)
 }
 
 /**
- * free_cmd_lines_list - frees a cmd_lines_list
+ * free_cmd_line_lst - frees a cmd_lines_list
  * @head: head of the linked list.
  * Return: no return.
  */
-void free_cmd_lines_list(cmd_lines_list **head)
+void free_cmd_line_lst(cmd_lines_list **head)
 {
 	cmd_lines_list *temp;
 	cmd_lines_list *curr;

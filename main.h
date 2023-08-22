@@ -91,17 +91,16 @@ typedef struct args_cmd_s
 	int (*f)(shell_data *datash);
 } args_builtin_cmd;
 
-/* aux_lists.c */
-seplists *add_sep_node_end(seplists **head, char sep);
-void free_seplists(seplists **head);
-cmd_lines_list *add_line_node_end(cmd_lines_list **head, char *line);
-void free_cmd_lines_list(cmd_lines_list **head);
 
-/* aux_lists2.c */
-rvars *add_rvar_node(rvars **head, int lvar, char *var, int lval);
-void free_rvar_list(rvars **head);
+seplists *add_sep_end_node(seplists **head, char sep);
+void free_seplist(seplists **head);
+cmd_lines_list *add_line_end_node(cmd_lines_list **head, char *line);
+void free_cmd_line_lst(cmd_lines_list **head);
 
-/* aux_str functions */
+
+rvars *addrvar_node(rvars **head, int lvar, char *var, int lval);
+void freervarlist(rvars **head);
+
 char *_strcat(char *dest, const char *src);
 char *_strcpy(char *dest, char *src);
 int _strcmp(char *s1, char *s2);
