@@ -41,16 +41,16 @@ typedef struct data
 } shell_data;
 
 /**
- * struct sep_list_s - single linked list
- * @separator: ; | &
+ * struct seplist - singly linked list 
+ * @separatr: ; | &
  * @next: next node
- * Description: single linked list to store separators
+ * Description: stores separatrs
  */
-typedef struct sep_list_s
+typedef struct seplist
 {
-	char separator;
-	struct sep_list_s *next;
-} sep_list;
+	char separatr;
+	struct seplist *next;
+} seplists;
 
 /**
  * struct line_list_s - single linked list
@@ -92,8 +92,8 @@ typedef struct builtin_s
 } builtin_t;
 
 /* aux_lists.c */
-sep_list *add_sep_node_end(sep_list **head, char sep);
-void free_sep_list(sep_list **head);
+seplists *add_sep_node_end(seplists **head, char sep);
+void free_seplists(seplists **head);
 line_list *add_line_node_end(line_list **head, char *line);
 void free_line_list(line_list **head);
 
@@ -139,8 +139,8 @@ char *read_line(int *i_eof);
 
 /* split.c */
 char *swap_char(char *input, int bool);
-void add_nodes(sep_list **head_s, line_list **head_l, char *input);
-void go_next(sep_list **list_s, line_list **list_l, shell_data *datash);
+void add_nodes(seplists **head_s, line_list **head_l, char *input);
+void go_next(seplists **list_s, line_list **list_l, shell_data *datash);
 int split_commands(shell_data *datash, char *input);
 char **split_line(char *input);
 

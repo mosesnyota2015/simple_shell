@@ -44,14 +44,14 @@ char *swap_char(char *input, int bool)
 }
 
 /**
- * add_nodes - add separators and command lines in the lists
+ * add_nodes - add separatrs and command lines in the lists
  *
- * @head_s: head of separator list
+ * @head_s: head of separatr list
  * @head_l: head of command lines list
  * @input: input string
  * Return: no return
  */
-void add_nodes(sep_list **head_s, line_list **head_l, char *input)
+void add_nodes(seplists **head_s, line_list **head_l, char *input)
 {
 	int i;
 	char *line;
@@ -82,15 +82,15 @@ void add_nodes(sep_list **head_s, line_list **head_l, char *input)
 /**
  * go_next - go to the next command line stored
  *
- * @list_s: separator list
+ * @list_s: separatr list
  * @list_l: command line list
  * @datash: data structure
  * Return: no return
  */
-void go_next(sep_list **list_s, line_list **list_l, shell_data *datash)
+void go_next(seplists **list_s, line_list **list_l, shell_data *datash)
 {
 	int loop_sep;
-	sep_list *ls_s;
+	seplists *ls_s;
 	line_list *ls_l;
 
 	loop_sep = 1;
@@ -101,16 +101,16 @@ void go_next(sep_list **list_s, line_list **list_l, shell_data *datash)
 	{
 		if (datash->status == 0)
 		{
-			if (ls_s->separator == '&' || ls_s->separator == ';')
+			if (ls_s->separatr == '&' || ls_s->separatr == ';')
 				loop_sep = 0;
-			if (ls_s->separator == '|')
+			if (ls_s->separatr == '|')
 				ls_l = ls_l->next, ls_s = ls_s->next;
 		}
 		else
 		{
-			if (ls_s->separator == '|' || ls_s->separator == ';')
+			if (ls_s->separatr == '|' || ls_s->separatr == ';')
 				loop_sep = 0;
-			if (ls_s->separator == '&')
+			if (ls_s->separatr == '&')
 				ls_l = ls_l->next, ls_s = ls_s->next;
 		}
 		if (ls_s != NULL && !loop_sep)
@@ -123,7 +123,7 @@ void go_next(sep_list **list_s, line_list **list_l, shell_data *datash)
 
 /**
  * split_commands - splits command lines according to
- * the separators ;, | and &, and executes them
+ * the separatrs ;, | and &, and executes them
  *
  * @datash: data structure
  * @input: input string
@@ -132,7 +132,7 @@ void go_next(sep_list **list_s, line_list **list_l, shell_data *datash)
 int split_commands(shell_data *datash, char *input)
 {
 
-	sep_list *head_s, *list_s;
+	seplists *head_s, *list_s;
 	line_list *head_l, *list_l;
 	int loop;
 
@@ -160,7 +160,7 @@ int split_commands(shell_data *datash, char *input)
 			list_l = list_l->next;
 	}
 
-	free_sep_list(&head_s);
+	free_seplists(&head_s);
 	free_line_list(&head_l);
 
 	if (loop == 0)

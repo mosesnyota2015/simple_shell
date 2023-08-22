@@ -50,7 +50,7 @@ If the name is neither a shell function nor a builtin, and contains no slashes, 
 
 If the search is successful, or if the command name contains one or more slashes, the shell executes the named program in a separate execution environment. Argument 0 is set to the name given, and the remaining arguments to the command are set to the arguments given, if any.
 
-.SH Environment
+.SH environment
 \fBhsh\fR takes a copy from \fBBash\fR environment of the parent process where it was executed. The environment is an array of strings containing the variables in the format.
 When a program is invoked it is given an array of strings called the environment. This is a list of name-value pairs, of the form name=value.
 
