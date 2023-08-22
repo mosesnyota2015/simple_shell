@@ -53,53 +53,53 @@ typedef struct seplist
 } seplists;
 
 /**
- * struct line_list_s - single linked list
+ * struct cmd_lines - single linked list
  * @line: command line
  * @next: next node
  * Description: single linked list to store command lines
  */
-typedef struct line_list_s
+typedef struct cmd_lines
 {
 	char *line;
-	struct line_list_s *next;
-} line_list;
+	struct cmd_lines *next;
+} cmd_lines_list;
 
 /**
- * struct r_var_list - single linked list
- * @len_var: length of the variable
- * @val: value of the variable
- * @len_val: length of the value
+ * struct rvarlist - single linked list
+ * @len_var: variable length
+ * @val: variable
+ * @len_val: value length
  * @next: next node
  * Description: single linked list to store variables
  */
-typedef struct r_var_list
+typedef struct rvarlist
 {
 	int len_var;
 	char *val;
 	int len_val;
-	struct r_var_list *next;
-} r_var;
+	struct rvarlist *next;
+} rvars;
 
 /**
- * struct builtin_s - Builtin struct for command args.
- * @name: The name of the command builtin i.e cd, exit, env
+ * struct args_cmd_s - struct for command arguments.
+ * @name: command name
  * @f: data type pointer function.
  */
-typedef struct builtin_s
+typedef struct args_cmd_s
 {
 	char *name;
 	int (*f)(shell_data *datash);
-} builtin_t;
+} args_builtin_cmd;
 
 /* aux_lists.c */
 seplists *add_sep_node_end(seplists **head, char sep);
 void free_seplists(seplists **head);
-line_list *add_line_node_end(line_list **head, char *line);
-void free_line_list(line_list **head);
+cmd_lines_list *add_line_node_end(cmd_lines_list **head, char *line);
+void free_cmd_lines_list(cmd_lines_list **head);
 
 /* aux_lists2.c */
-r_var *add_rvar_node(r_var **head, int lvar, char *var, int lval);
-void free_rvar_list(r_var **head);
+rvars *add_rvar_node(rvars **head, int lvar, char *var, int lval);
+void free_rvar_list(rvars **head);
 
 /* aux_str functions */
 char *_strcat(char *dest, const char *src);
@@ -139,15 +139,15 @@ char *read_line(int *i_eof);
 
 /* split.c */
 char *swap_char(char *input, int bool);
-void add_nodes(seplists **head_s, line_list **head_l, char *input);
-void go_next(seplists **list_s, line_list **list_l, shell_data *datash);
+void add_nodes(seplists **head_s, cmd_lines_list **head_l, char *input);
+void go_next(seplists **list_s, cmd_lines_list **list_l, shell_data *datash);
 int split_commands(shell_data *datash, char *input);
 char **split_line(char *input);
 
 /* rep_var.c */
-void check_env(r_var **h, char *in, shell_data *data);
-int check_vars(r_var **h, char *in, char *st, shell_data *data);
-char *replaced_input(r_var **head, char *input, char *new_input, int nlen);
+void check_env(rvars **h, char *in, shell_data *data);
+int check_vars(rvars **h, char *in, char *st, shell_data *data);
+char *replaced_input(rvars **head, char *input, char *new_input, int nlen);
 char *rep_var(char *input, shell_data *datash);
 
 /* get_line.c */

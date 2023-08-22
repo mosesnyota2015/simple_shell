@@ -51,7 +51,7 @@ char *swap_char(char *input, int bool)
  * @input: input string
  * Return: no return
  */
-void add_nodes(seplists **head_s, line_list **head_l, char *input)
+void add_nodes(seplists **head_s, cmd_lines_list **head_l, char *input)
 {
 	int i;
 	char *line;
@@ -87,11 +87,11 @@ void add_nodes(seplists **head_s, line_list **head_l, char *input)
  * @datash: data structure
  * Return: no return
  */
-void go_next(seplists **list_s, line_list **list_l, shell_data *datash)
+void go_next(seplists **list_s, cmd_lines_list **list_l, shell_data *datash)
 {
 	int loop_sep;
 	seplists *ls_s;
-	line_list *ls_l;
+	cmd_lines_list *ls_l;
 
 	loop_sep = 1;
 	ls_s = *list_s;
@@ -133,7 +133,7 @@ int split_commands(shell_data *datash, char *input)
 {
 
 	seplists *head_s, *list_s;
-	line_list *head_l, *list_l;
+	cmd_lines_list *head_l, *list_l;
 	int loop;
 
 	head_s = NULL;
@@ -161,7 +161,7 @@ int split_commands(shell_data *datash, char *input)
 	}
 
 	free_seplists(&head_s);
-	free_line_list(&head_l);
+	free_cmd_lines_list(&head_l);
 
 	if (loop == 0)
 		return (0);

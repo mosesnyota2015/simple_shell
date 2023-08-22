@@ -57,16 +57,16 @@ void free_seplists(seplists **head)
 
 /**
  * add_line_node_end - adds a command line at the end
- * of a line_list.
+ * of a cmd_lines_list.
  * @head: head of the linked list.
  * @line: command line.
  * Return: address of the head.
  */
-line_list *add_line_node_end(line_list **head, char *line)
+cmd_lines_list *add_line_node_end(cmd_lines_list **head, char *line)
 {
-	line_list *new, *temp;
+	cmd_lines_list *new, *temp;
 
-	new = malloc(sizeof(line_list));
+	new = malloc(sizeof(cmd_lines_list));
 	if (new == NULL)
 		return (NULL);
 
@@ -89,14 +89,14 @@ line_list *add_line_node_end(line_list **head, char *line)
 }
 
 /**
- * free_line_list - frees a line_list
+ * free_cmd_lines_list - frees a cmd_lines_list
  * @head: head of the linked list.
  * Return: no return.
  */
-void free_line_list(line_list **head)
+void free_cmd_lines_list(cmd_lines_list **head)
 {
-	line_list *temp;
-	line_list *curr;
+	cmd_lines_list *temp;
+	cmd_lines_list *curr;
 
 	if (head != NULL)
 	{

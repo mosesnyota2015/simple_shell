@@ -7,7 +7,7 @@
  */
 int (*get_builtin(char *cmd))(shell_data *)
 {
-	builtin_t builtin[] = {
+	args_builtin_cmd builtin[] = {
 		{ "env", _env },
 		{ "exit", exit_shell },
 		{ "setenv", _setenv },
