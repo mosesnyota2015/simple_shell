@@ -98,7 +98,7 @@ cmd_lines_list *add_line_end_node(cmd_lines_list **head, char *line);
 void free_cmd_line_lst(cmd_lines_list **head);
 
 
-rvars *addrvar_node(rvars **head, int lvar, char *var, int lval);
+rvars *addrvar_node(rvars **hd, int lvr, char *vr, int vall);
 void freervarlist(rvars **head);
 
 char *_strcat(char *dest, const char *src);
